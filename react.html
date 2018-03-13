@@ -1,110 +1,18 @@
-<!-- <<<<<<< HEAD -->
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>REACT</title>
-	<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	<script src="react.min.js"></script>
+	<script src="react-dom.min.js"></script>
 	<script src="browser.min.js"></script>
-	</script>
-</head>
-<body>
-	<div id="container"></div>
-	<script type="text/babel">
-		var Component=React.createClass({
-		getInitialState:function(){
-		return{editing:false};
-	},
-			edit:function(){
-			this.setState({editing:true});
-		},
-		remove:function(){
-			this.props.Deletion(this.props.index);
-		},
-		save:function(){
-		this.props.Updation(this.refs.newText.value,this.props.index);
-		this.setState({editing:false});
-	},
-		renderNormal:function(){
-		return(
-					<div className="commentContainer">
-					<div className="commentText">{this.props.children}</div>
-					<button onClick={this.edit} className="button-primary">Edit</button>
-					<button onClick={this.remove} className="button-danger">Remove</button>
-			</div>);
-	},
-		renderForm:function(){
-			return(	<div>
-					<textarea name="" id="" cols="30" rows="3" ref="newText" defaultValue={this.props.children}></textarea>
-					<button onClick={this.save} className="button-success">Save</button>
-				</div>);
-	},
-			render:function(){
-			if(this.state.editing){
-					return this.renderForm();
-				}
-				else{
-				return this.renderNormal();
-			}
-		}
-	});
-
-	var Board=React.createClass({
-	getInitialState:function(){
-		return{
-		comments : []
-			}
-		},
-		updateComment:function(newComment,i){
-		var arr=this.state.comments;
-		arr[i]=newComment;
-		this.setState({comments:arr});		
-		},
-		deleteComment:function(i){
-		var arr=this.state.comments;
-		arr.splice(i,1);
-		this.setState({comments:arr});
-		},
-		add:function(text){
-		var arr=this.state.comments;
-		arr.push(text);
-		this.setState({comments:arr});
-		},
-		eachComment:function(text,i){
-				return(<Component key={i} index={i} Updation={this.updateComment} Deletion={this.deleteComment}>
-						{text}
-						</Component>);
-		},
-		render:function(){
-		return(
-				<div>
-					<button  onClick={this.add.bind(null,'Enter Agenda')}  className="button-info create">Add New</button>
-					<div className="board">
-			{
-				this.state.comments.map(this.eachComment)
-			}
-		</div>
-				</div>
-	);
-	}
-});
-		ReactDOM.render(<Board />,document.getElementById('container'));
-	</script>
-</body>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>REACT</title>
-	<script src="src/js/react.min.js"></script>
-	<script src="src/js/react-dom.min.js"></script>
-	<script src="src/js/browser.min.js"></script>
-<!-- 	<link rel="stylesheet" type="text/css" href="src/css/main.css">
-	<link rel="stylesheet" type="text/css" href="src/css/font-awesome.min.css"> -->
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</script>
 </head>
 <body>
